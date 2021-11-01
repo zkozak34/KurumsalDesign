@@ -10,9 +10,9 @@ namespace ConsoleUI
         {
             var productManager = new ProductManager(new ProductDal());
             Console.WriteLine("------------------- PRODUCTS START -------------------");
-            foreach (var p in productManager.GetAll()) 
+            foreach (var p in productManager.GetProductDetails()) 
             {
-                Console.WriteLine(p.ProductName);
+                Console.WriteLine($"Ürün Adı: {p.ProductName} \t Kategori: {p.CategoryName}");
             } 
             Console.WriteLine("------------------- PRODUCTS END -------------------");
             

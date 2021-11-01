@@ -4,6 +4,7 @@ using System.Linq.Expressions;
 using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 
 namespace Business.Concrete
 {
@@ -39,6 +40,11 @@ namespace Business.Concrete
         public void Update(Product item)
         {
             _productDal.Update(item);
+        }
+
+        public List<ProductDetailsDto> GetProductDetails()
+        {
+            return _productDal.GetProductDetails();
         }
     }
 }
