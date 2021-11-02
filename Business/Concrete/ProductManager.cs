@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Business.Abstract;
+using Core.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -17,9 +19,9 @@ namespace Business.Concrete
             _productDal = productDal;
         }
         
-        public List<Product> GetAll(Expression<Func<Product, bool>> filter = null)
+        public IResultWithData<List<Product>> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            return _productDal.GetAll(filter);
+            return new SuccessResultWithData<List<Product>>(_productDal.GetAll(filter), "Ürünler listelendi.");
         }
 
         public Product Get(Expression<Func<Product, bool>> filter)
@@ -27,9 +29,10 @@ namespace Business.Concrete
             return _productDal.Get(filter);
         }
 
-        public void Add(Product item)
+        public IResult Add(Product item)
         {
             _productDal.Add(item);
+            return new SuccessResult(Messages.ProductAdded);
         }
 
         public void Delete(Product item)
