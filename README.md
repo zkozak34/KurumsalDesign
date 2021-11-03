@@ -20,3 +20,7 @@ Entities, DataAccess ve Business klasörleri (Class Library) içerisinde bulunan
 
 ### ConsoleUI klasörü
 İçerisinde Console app barından simulasyon yapmak için kullandığımız bir arayüzdür. Bir angular, react uygulaması gibi düşünülebilir. 
+
+### WebAPI klasörü
+İçerisinde WebAPI barındıran bir API projesidir. Uygulamaya dışarıdan bağlantı kurulmasını sağlar. Postman collection ile mevcut bütün endpoint ler görülebilir.
+Çalıştırmak için `cd WebUI & dotnet run` komutunu çalıştırın ve tarayıcıdan `http://localhost:5001` adresi ile bağlanın.
