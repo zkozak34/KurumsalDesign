@@ -1,4 +1,15 @@
-﻿# C# Kurumsal Tasarım ile Northwind API Çalışması
+# C# Kurumsal Tasarım ile Northwind API Çalışması
+
+### Kurulum
+Çalıştırmak için:
+
+1. `$ git clone https://github.com/zkozak34/KurumsalDesign` ile projeyi klonlayın.
+
+2. `KurumsalDesign/DataAccess/Concrete/NorthwindContext.cs` dosyasında ki `_connectionString` değişkenini veritabanınıza göre değiştirin. **Referans: [Connection String](https://www.connectionstrings.com/)**
+
+3. `cd WebUI & dotnet run` komutu ile projeyi çalıştırın.
+
+4. Mevcut endpoint ler için Postman uygulamasına `KurumsalDesignBackend.postman_collection.json` dosyasını import edin. 
 
 ### Proje (Class Library) tanımları
 Solution içerisinde bulunan Entities, DataAccess ve Business klasörlerinin tanımları;
@@ -22,5 +33,4 @@ Entities, DataAccess ve Business klasörleri (Class Library) içerisinde bulunan
 İçerisinde Console app barından simulasyon yapmak için kullandığımız bir arayüzdür. Bir angular, react uygulaması gibi düşünülebilir. 
 
 ### WebAPI klasörü
-İçerisinde WebAPI barındıran bir API projesidir. Uygulamaya dışarıdan bağlantı kurulmasını sağlar. Postman collection ile mevcut bütün endpoint ler görülebilir.
-Çalıştırmak için `cd WebUI & dotnet run` komutunu çalıştırın ve tarayıcıdan `http://localhost:5001` adresi ile bağlanın.
+İçerisinde WebAPI barındıran bir API projesidir. Uygulamaya dışarıdan bağlantı kurulmasını sağlar. Çalıştırmak için `cd WebUI & dotnet run` komutunu çalıştırın ve tarayıcıdan `http://localhost:5001` adresi ile bağlanın.
