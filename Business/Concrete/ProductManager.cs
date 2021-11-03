@@ -21,28 +21,35 @@ namespace Business.Concrete
         
         public IResultWithData<List<Product>> GetAll(Expression<Func<Product, bool>> filter = null)
         {
-            return new SuccessResultWithData<List<Product>>(_productDal.GetAll(filter), "Ürünler listelendi.");
+            if (DateTime.Now.Hour == 15)
+            {
+                return new ErrorResultWithData<List<Product>>(null, Messages.MaintenanceTime);
+            }
+
+            return new SuccessResultWithData<List<Product>>(_productDal.GetAll(), Messages.MessageToGetAll);
         }
 
-        public Product Get(Expression<Func<Product, bool>> filter)
+        public IResultWithData<Product> Get(Expression<Func<Product, bool>> filter)
         {
-            return _productDal.Get(filter);
+            return new ResultWithData<Product>(_productDal.Get(filter), true, Messages.MessageToGetById);
         }
 
         public IResult Add(Product item)
         {
             _productDal.Add(item);
-            return new SuccessResult(Messages.ProductAdded);
+            return new Result(true, Messages.MessageToAdded);
         }
 
-        public void Delete(Product item)
+        public IResult Delete(Product item)
         {
             _productDal.Delete(item);
+            return new Result(true, Messages.MessageToDeleted);
         }
 
-        public void Update(Product item)
+        public IResult Update(Product item)
         {
             _productDal.Update(item);
+            return new Result(true, Messages.MessageToUpdated);
         }
 
         public List<ProductDetailsDto> GetProductDetails()

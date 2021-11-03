@@ -8,9 +8,9 @@ namespace Business.Abstract
     public interface IEntityService<T>
     {
         IResultWithData<List<T>> GetAll(Expression<Func<T, bool>> filter = null);
-        T Get(Expression<Func<T, bool>> filter);
+        IResultWithData<T> Get(Expression<Func<T, bool>> filter);
         IResult Add(T item);
-        void Delete(T item);
-        void Update(T item);
+        IResult Delete(T item);
+        IResult Update(T item);
     }
 }

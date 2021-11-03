@@ -3,7 +3,9 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-
+.git
+.idea
+.gitattributes
 # Default ignored files
 /shelf/
 /workspace.xml

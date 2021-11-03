@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Business.Abstract;
+using Core.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,32 +20,33 @@ namespace Business.Concrete
         
         public IResultWithData<List<Category>> GetAll(Expression<Func<Category, bool>> filter = null)
         {
-            return new SuccessResultWithData<List<Category>>(_categoryDal.GetAll(filter), "Kategoriler listelendi.");
+            return new SuccessResultWithData<List<Category>>(_categoryDal.GetAll(filter), Messages.MessageToGetAll);
         }
 
-        public Category Get(Expression<Func<Category, bool>> filter)
+        public IResultWithData<Category> Get(Expression<Func<Category, bool>> filter)
         {
-            return _categoryDal.Get(filter);
+            return new ResultWithData<Category>(_categoryDal.Get(filter), true, Messages.MessageToGetById);
 
         }
 
         public IResult Add(Category item)
         {
             _categoryDal.Add(item);
-            return new Result(true, "Başarılı");
+            return new Result(true, Messages.MessageToAdded);
 
         }
 
-        public void Delete(Category item)
+        public IResult Delete(Category item)
         {
             _categoryDal.Delete(item);
+            return new Result(true, Messages.MessageToDeleted);
 
         }
 
-        public void Update(Category item)
+        public IResult Update(Category item)
         {
             _categoryDal.Update(item);
-
+            return new Result(true, Messages.MessageToUpdated);
         }
     }
 }
