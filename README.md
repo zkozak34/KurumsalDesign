@@ -34,3 +34,7 @@ Entities, DataAccess ve Business klasörleri (Class Library) içerisinde bulunan
 
 ### WebAPI klasörü
 İçerisinde WebAPI barındıran bir API projesidir. Uygulamaya dışarıdan bağlantı kurulmasını sağlar. Çalıştırmak için `cd WebUI & dotnet run` komutunu çalıştırın ve tarayıcıdan `http://localhost:5001` adresi ile bağlanın.
+
+### Kullanılan Teknolojiler
+1. Entity Framework
+2. Autofac IoC Container

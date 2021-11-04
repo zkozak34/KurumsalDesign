@@ -2,7 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Business.Abstract;
+using Business.ValidationRules.FluentValidation;
 using Core.Constants;
+using Core.CrossCuttingConcerns.Validation;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -36,6 +38,7 @@ namespace Business.Concrete
 
         public IResult Add(Product item)
         {
+            ValidationTool.Validate(new ProductValidator(), item);
             _productDal.Add(item);
             return new Result(true, Messages.MessageToAdded);
         }
